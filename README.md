@@ -31,7 +31,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@deno/mod.js';
+import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@v0.0.9-deno/mod.js';
 ```
 
 #### sswap( N, x, strideX, y, strideY )
@@ -149,7 +149,7 @@ sswap.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
 import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
 import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
-import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@deno/mod.js';
+import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@v0.0.9-deno/mod.js';
 
 var x;
 var y;
