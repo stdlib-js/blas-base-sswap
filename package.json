@@ -42,20 +42,26 @@
   },
   "dependencies": {
     "@stdlib/assert-is-error": "^0.0.x",
+    "@stdlib/napi-argv": "^0.0.x",
+    "@stdlib/napi-argv-int64": "^0.0.x",
+    "@stdlib/napi-argv-strided-float32array": "^0.0.x",
+    "@stdlib/napi-export": "^0.0.x",
     "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x",
     "@stdlib/utils-library-manifest": "^0.0.x",
     "@stdlib/utils-try-require": "^0.0.x"
   },
   "devDependencies": {
+    "@stdlib/array-filled-by": "^0.0.x",
     "@stdlib/array-float32": "^0.0.x",
     "@stdlib/assert-is-browser": "^0.0.x",
     "@stdlib/bench": "^0.0.x",
     "@stdlib/blas-base-scopy": "^0.0.x",
     "@stdlib/math-base-assert-is-nan": "^0.0.x",
-    "@stdlib/math-base-special-floor": "^0.0.x",
     "@stdlib/math-base-special-pow": "^0.0.x",
-    "@stdlib/math-base-special-round": "^0.0.x",
-    "@stdlib/random-base-randu": "^0.0.x",
+    "@stdlib/random-base-discrete-uniform": "^0.0.x",
+    "@stdlib/random-base-uniform": "^0.0.x",
+    "@stdlib/strided-base-min-view-buffer-index": "^0.0.x",
+    "@stdlib/strided-base-offset-view": "^0.0.x",
     "proxyquire": "^2.0.0",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
@@ -98,7 +104,9 @@
     "float32array",
     "typed array"
   ],
-  "__stdlib__": {},
+  "__stdlib__": {
+    "wasm": false
+  },
   "funding": {
     "type": "patreon",
     "url": "https://www.patreon.com/athan"
