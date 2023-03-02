@@ -67,7 +67,7 @@ sswap( x.length, x, 1, y, 1 );
 
 The function has the following parameters:
 
--   **N**: number of values to swap.
+-   **N**: number of indexed elements.
 -   **x**: first input [`Float32Array`][mdn-float32array].
 -   **strideX**: index increment for `x`.
 -   **y**: second input [`Float32Array`][mdn-float32array].
@@ -252,7 +252,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
