@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@stdlib/array-filled-by": "^0.1.0",
-    "@stdlib/array-float32": "^0.1.0",
+    "@stdlib/array-float32": "^0.1.1",
     "@stdlib/assert-is-browser": "^0.1.1",
     "@stdlib/bench": "^0.1.0",
     "@stdlib/blas-base-scopy": "^0.1.1",
