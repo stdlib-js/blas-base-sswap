@@ -35,30 +35,14 @@ limitations under the License.
 
 > Interchange two single-precision floating-point vectors.
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/blas-base-sswap
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var sswap = require( '@stdlib/blas-base-sswap' );
+import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@deno/mod.js';
 ```
 
 #### sswap( N, x, strideX, y, strideY )
@@ -66,7 +50,7 @@ var sswap = require( '@stdlib/blas-base-sswap' );
 Interchanges vectors `x` and `y`.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0 ] );
 var y = new Float32Array( [ 6.0, 7.0, 8.0, 9.0, 10.0 ] );
@@ -87,7 +71,7 @@ The function has the following parameters:
 The `N` and stride parameters determine how values from the strided arrays are accessed at runtime. For example, to swap in reverse order every other value in `x` with the first `N` elements of `y`,
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float32Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
@@ -102,7 +86,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 // Initial arrays...
 var x0 = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -123,7 +107,7 @@ sswap( 3, x1, -2, y1, 1 );
 Interchanges vectors `x` and `y` using alternative indexing semantics.
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0 ] );
 var y = new Float32Array( [ 6.0, 7.0, 8.0, 9.0, 10.0 ] );
@@ -141,7 +125,7 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to swap every other value in `x` starting from the second value with the last `N` elements in `y` where `x[i] = y[n]`, `x[i+2] = y[n-1]`,...,
 
 ```javascript
-var Float32Array = require( '@stdlib/array-float32' );
+import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
 
 var x = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float32Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
@@ -173,8 +157,8 @@ sswap.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var sswap = require( '@stdlib/blas-base-sswap' );
+import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
+import sswap from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@deno/mod.js';
 
 var opts = {
     'dtype': 'float32'
@@ -221,7 +205,7 @@ console.log( y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -291,13 +275,13 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/blas/base/dswap]: https://github.com/stdlib-js/blas-base-dswap
+[@stdlib/blas/base/dswap]: https://github.com/stdlib-js/blas-base-dswap/tree/deno
 
-[@stdlib/blas/base/gswap]: https://github.com/stdlib-js/blas-base-gswap
+[@stdlib/blas/base/gswap]: https://github.com/stdlib-js/blas-base-gswap/tree/deno
 
-[@stdlib/blas/base/scopy]: https://github.com/stdlib-js/blas-base-scopy
+[@stdlib/blas/base/scopy]: https://github.com/stdlib-js/blas-base-scopy/tree/deno
 
-[@stdlib/blas/sswap]: https://github.com/stdlib-js/blas-sswap
+[@stdlib/blas/sswap]: https://github.com/stdlib-js/blas-sswap/tree/deno
 
 <!-- </related-links> -->
 
