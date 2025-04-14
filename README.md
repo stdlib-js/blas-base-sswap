@@ -35,38 +35,32 @@ limitations under the License.
 
 > Interchange two single-precision floating-point vectors.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/blas-base-sswap
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-sswap = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var sswap = require( 'path/to/vendor/umd/blas-base-sswap/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.sswap;
-})();
-</script>
+var sswap = require( '@stdlib/blas-base-sswap' );
 ```
 
 #### sswap( N, x, strideX, y, strideY )
@@ -180,14 +174,9 @@ sswap.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-sswap@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var sswap = require( '@stdlib/blas-base-sswap' );
 
 var opts = {
     'dtype': 'float32'
@@ -202,11 +191,6 @@ console.log( y );
 sswap( x.length, x, 1, y, -1 );
 console.log( x );
 console.log( y );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -215,7 +199,139 @@ console.log( y );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/blas/base/sswap.h"
+```
+
+#### c_sswap( N, \*X, strideX, \*Y, strideY )
+
+Interchanges two single-precision floating-point vectors.
+
+```c
+float x[] = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f };
+float y[] = { 6.0f, 7.0f, 8.0f, 9.0f, 10.0f };
+
+c_sswap( 5, x, 1, y, 1 );
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **X**: `[inout] float*` first input array.
+-   **strideX**: `[in] CBLAS_INT` index increment for `X`.
+-   **Y**: `[inout] float*` second input array.
+-   **strideY**: `[in] CBLAS_INT` index increment for `Y`.
+
+```c
+void c_sswap( const CBLAS_INT N, float *X, const CBLAS_INT strideX, float *Y, const CBLAS_INT strideY );
+```
+
+#### c_sswap_ndarray( N, \*X, strideX, offsetX, \*Y, strideY, offsetY )
+
+Interchanges two single-precision floating-point vectors using alternative indexing semantics.
+
+```c
+float x[] = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f };
+float y[] = { 6.0f, 7.0f, 8.0f, 9.0f, 10.0f };
+
+c_sswap_ndarray( 3, x, 1, 2, y, 1, 2 );
+```
+
+The function accepts the following arguments:
+
+-   **N**: `[in] CBLAS_INT` number of indexed elements.
+-   **X**: `[inout] float*` first input array.
+-   **strideX**: `[in] CBLAS_INT` index increment for `X`.
+-   **offsetX**: `[in] CBLAS_INT` starting index for `X`.
+-   **Y**: `[inout] float*` second input array.
+-   **strideY**: `[in] CBLAS_INT` index increment for `Y`.
+-   **offsetY**: `[in] CBLAS_INT` starting index for `Y`.
+
+```c
+void c_sswap_ndarray( const CBLAS_INT N, float *X, const CBLAS_INT strideX, const CBLAS_INT offsetX, float *Y, const CBLAS_INT strideY, CBLAS_INT offsetY );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/blas/base/sswap.h"
+#include <stdio.h>
+
+int main( void ) {
+    // Create strided arrays:
+    float x[] = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, 6.0f, 7.0f, 8.0f };
+    float y[] = { 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f };
+
+    // Specify the number of indexed elements:
+    const int N = 4;
+
+    // Specify stride lengths:
+    const int strideX = 2;
+    const int strideY = -2;
+
+    // Interchange elements:
+    c_sswap( N, x, strideX, y, strideY );
+
+    // Print the result:
+    for ( int i = 0; i < 8; i++ ) {
+        printf( "x[ %i ] = %f\n", i, x[ i ] );
+        printf( "y[ %i ] = %f\n", i, y[ i ] );
+    }
+
+    // Interchange elements:
+    c_sswap_ndarray( N, x, strideX, 0, y, strideY, 6 );
+
+    // Print the result:
+    for ( int i = 0; i < 8; i++ ) {
+        printf( "x[ %i ] = %f\n", i, x[ i ] );
+        printf( "y[ %i ] = %f\n", i, y[ i ] );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -316,13 +432,13 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/blas/base/dswap]: https://github.com/stdlib-js/blas-base-dswap/tree/umd
+[@stdlib/blas/base/dswap]: https://github.com/stdlib-js/blas-base-dswap
 
-[@stdlib/blas/base/gswap]: https://github.com/stdlib-js/blas-base-gswap/tree/umd
+[@stdlib/blas/base/gswap]: https://github.com/stdlib-js/blas-base-gswap
 
-[@stdlib/blas/base/scopy]: https://github.com/stdlib-js/blas-base-scopy/tree/umd
+[@stdlib/blas/base/scopy]: https://github.com/stdlib-js/blas-base-scopy
 
-[@stdlib/blas/sswap]: https://github.com/stdlib-js/blas-sswap/tree/umd
+[@stdlib/blas/sswap]: https://github.com/stdlib-js/blas-sswap
 
 <!-- </related-links> -->
 
